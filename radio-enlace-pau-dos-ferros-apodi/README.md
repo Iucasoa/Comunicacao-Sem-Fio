@@ -6,6 +6,8 @@ Projeto de engenharia da **1ª Unidade** da disciplina de Comunicações Sem Fio
 
 A linha de visada direta entre as cidades é obstruída por maciços rochosos do Alto Oeste Potiguar. A solução adotada usa uma **estação repetidora ativa** em um cume intermediário, formando **dois trechos independentes**, ambos em **5725–5850 MHz** com rádios Ubiquiti airFiber 5XHD e antenas de 30 dBi em torres de 30 m. Os dois trechos têm margem superior a 25 dB sobre o limiar de −90 dBm adotado na simulação.
 
+📄 [Relatório técnico](./docs/Relatorio.pdf) · 📊 [Orçamento (Excel)](./data/orcamento-radio-enlace.xlsx) · 📝 [Questões e resoluções](./docs/questoes.pdf) · 💻 [Script da Questão 3](./src/questao3.m)
+
 ## 📍 Topologia
 
 | Estação | Latitude | Longitude | Altitude do terreno | Papel |
@@ -28,7 +30,7 @@ Altura das antenas: **30 m** em todos os sítios. Antenas: **30 dBi** (Tx e Rx).
 | Margem sobre −90 dBm | 25,8 dB | 28,2 dB |
 | Pior Fresnel | 8,6 F1 | 2,6 F1 |
 
-> **Nota:** os valores acima seguem o `Relatorio.pdf`. A perda em espaço livre a 5,8 GHz é ≈ 132 dB (16,8 km) e ≈ 142 dB (53 km), então vale conferir os valores de perda no caminho no Radio Mobile.
+> **Nota:** os valores acima seguem o [`Relatorio.pdf`](./docs/Relatorio.pdf). A perda em espaço livre a 5,8 GHz é ≈ 132 dB (16,8 km) e ≈ 142 dB (53 km), então vale conferir os valores de perda no caminho no Radio Mobile.
 
 A capacidade de 100 Mbps é compatível com o equipamento, mas depende da largura de canal, do esquema de modulação, da relação sinal-ruído e da interferência no local.
 
@@ -56,7 +58,7 @@ São 4 rádios e 4 antenas porque a repetidora atende dois enlaces independentes
 | Base recomendada | R$ 98.782,55 | R$ 48.794,34 | **R$ 147.576,89** |
 | Alto | R$ 149.889,05 | R$ 93.189,22 | **R$ 243.078,27** |
 
-O orçamento **não inclui** o sistema de energia da repetidora, terrenos, licenças, impostos específicos nem mensalidades. A fundação é uma premissa acadêmica e exige sondagem, cálculo estrutural e ART. Detalhes e fontes de preço estão em `data/orcamento-radio-enlace.xlsx`.
+O orçamento **não inclui** o sistema de energia da repetidora, terrenos, licenças, impostos específicos nem mensalidades. A fundação é uma premissa acadêmica e exige sondagem, cálculo estrutural e ART. Detalhes e fontes de preço estão em [`data/orcamento-radio-enlace.xlsx`](./data/orcamento-radio-enlace.xlsx) (o GitHub não exibe planilhas, então é preciso baixar o arquivo).
 
 ## 📁 Estrutura da pasta
 
@@ -76,7 +78,7 @@ radio-enlace-pau-dos-ferros-apodi/
 
 ## 📊 Questão 3: potência recebida em espaço livre
 
-O script `src/questao3.m` calcula e plota a potência recebida de 1 m a 100 km para quatro sistemas, usando `Pr = Pt + Gt + Gr − Lfs`.
+O script [`src/questao3.m`](./src/questao3.m) calcula e plota a potência recebida de 1 m a 100 km para quatro sistemas, usando `Pr = Pt + Gt + Gr − Lfs`.
 
 | Sistema | Frequência | Pt | Gt / Gr | Pr a 100 km |
 |---|---|---|---|---|
@@ -91,9 +93,9 @@ As curvas caem 20 dB por década e ficam paralelas no eixo logarítmico. Na dist
 
 ## ▶️ Como reproduzir
 
-1. Abra `src/questao3.m` no MATLAB (ou Octave) e execute para gerar o gráfico.
+1. Abra [`src/questao3.m`](./src/questao3.m) no MATLAB (ou Octave) e execute. O gráfico é salvo em `img/Questao3Grafico.jpeg`.
 2. Para o enlace, use o Radio Mobile com as coordenadas, alturas, frequências e potências das tabelas acima.
-3. Para o orçamento, abra `data/orcamento-radio-enlace.xlsx`. Os totais são calculados por fórmulas, e as premissas editáveis estão na aba *Fontes e Premissas*.
+3. Para o orçamento, baixe e abra [`data/orcamento-radio-enlace.xlsx`](./data/orcamento-radio-enlace.xlsx). Os totais são calculados por fórmulas, e as premissas editáveis estão na aba *Fontes e Premissas*.
 
 ## 📖 Referências
 
