@@ -3,7 +3,7 @@ clc; clear; close all;
 c = 3e8;                          % velocidade da luz (m/s)
 d = logspace(0, 5, 1000);         % 1 m a 100 km
 
-% Parâmetros: [f (Hz), Pt (W), Gt (dBi), Gr (dBi)]
+% Parâmetros por linha: {nome, f (Hz), Pt (W), Gt (dBi), Gr (dBi)}
 sistemas = {
     'Visada direta', 10e9,  10,   35, 35;
     'TV',            180e6, 1e3,  10, 15;
@@ -36,4 +36,7 @@ ylabel('Potência recebida (dBm)');
 title('Potência recebida em espaço livre vs. distância');
 legend('Location', 'southwest');
 
-saveas(gcf, 'questao3.png');
+% Salva o gráfico em ../img/ (ou na pasta atual, se o script for colado no console)
+pasta_img = fullfile(fileparts(mfilename('fullpath')), '..', 'img');
+if ~exist(pasta_img, 'dir'), pasta_img = pwd; end
+saveas(gcf, fullfile(pasta_img, 'Questao3Grafico.jpeg'));
